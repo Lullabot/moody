@@ -1,4 +1,4 @@
-# Moody: A streamlined mood-tracker for your team.
+# A streamlined mood-tracker for your team.
 
 There are a thousand tools to track your project, all designed to give the team at-a-glance knowledge of your technical status. That's all well and good, but what about the emotional status? Is everyone stressed out? Is one team feeling fiiiiiine while the others are simply fine?
 
