@@ -37,6 +37,10 @@ class Mood(db.Model):
     self.note = note
     self.origin_data = origin_data
     self.user_id = user_id
+  
+  def __repr__(self):
+    return '<Mood %r>' % self.value
+
 
 class Event(db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -44,12 +48,18 @@ class Event(db.Model):
   at = db.Column(db.DateTime)
   location = db.Column(db.String(255))
   origin_data = db.Column(db.Text)
+  user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-  def __init__(self, name, at, location, origin_data):
+  def __init__(self, name, at, location, origin_data, user_id):
     self.name = name
     self.at = at
     self.location = location
     self.origin_data
+    self.user_id = user_id
+  
+  def __repr__(self):
+    return '<Event %r>' % self.name
+
 
 class Source(db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -57,6 +67,10 @@ class Source(db.Model):
 
   def __init__(self, name):
     self.name = name
+  
+  def __repr__(self):
+    return '<Source %r>' % self.name
+
 
 class Aspect(db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -64,6 +78,10 @@ class Aspect(db.Model):
 
   def __init__(self, name):
     self.name = name
+  
+  def __repr__(self):
+    return '<Aspect %r>' % self.name
+
 
 class Organization(db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -72,12 +90,20 @@ class Organization(db.Model):
   def __init__(self, name):
     self.name = name
 
-  
+  def __repr__(self):
+    return '<Organization %r>' % self.name
+
+ 
 class Tag(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.Text(80))
+  user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
   
-  def __init__(self, name):
+  def __init__(self, name, user_id):
     self.name = name
+    self.user_id = user_id
+
+  def __repr__(self):
+    return '<Tag %r>' % self.name
 
 
