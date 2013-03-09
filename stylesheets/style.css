@@ -1,0 +1,21 @@
+/* line 3, ../sass/module/_misc.scss */
+.header-nav .stayput {
+  position: fixed;
+  background: #fff;
+  height: 65px;
+  z-index: 1;
+}
+
+/* line 17, ../sass/module/_misc.scss */
+.moody-content .sidebar .sidebar-inner {
+  margin-top: 65px;
+  background: #f4f4f4;
+  position: fixed;
+  left: 0;
+  width: 200px;
+}
+
+/* line 31, ../sass/module/_misc.scss */
+label.left {
+  margin-left: 3em;
+}

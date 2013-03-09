@@ -1,0 +1,33 @@
+$header-nav-height: 65px;
+
+.header-nav .stayput {
+  position: fixed;
+  background: #fff;
+  height: $header-nav-height;
+  z-index: 1;
+  // margin-top: -$header-nav-height;
+}
+
+.moody-content {
+    // padding-top: $header-nav-height;
+    // margin-top: $header-nav-height;
+  
+  .sidebar {
+ 
+     .sidebar-inner {
+      margin-top: $header-nav-height;
+      background: #f4f4f4;
+      position: fixed;
+      left: 0;
+      width: 200px;
+
+      ul {
+        // position: fixed;
+      }
+    }
+  }
+}
+
+label.left {
+  margin-left: 3em;
+}
