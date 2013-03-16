@@ -2,7 +2,7 @@ from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://moody:moody@localhost/moody'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://moody:moody@127.0.0.1/moody'
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -12,7 +12,7 @@ class User(db.Model):
   moods = db.relationship('Mood', backref='user', lazy='dynamic')
   events = db.relationship('Event', backref='user', lazy='dynamic')
   tags = db.relationship('Tag', backref='user', lazy='dynamic')
-  
+
 
   def __init__(self, username, email):
     self.username = username
@@ -37,7 +37,7 @@ class Mood(db.Model):
     self.note = note
     self.origin_data = origin_data
     self.user_id = user_id
-  
+
   def __repr__(self):
     return '<Mood %r>' % self.value
 
@@ -56,7 +56,7 @@ class Event(db.Model):
     self.location = location
     self.origin_data
     self.user_id = user_id
-  
+
   def __repr__(self):
     return '<Event %r>' % self.name
 
@@ -67,7 +67,7 @@ class Source(db.Model):
 
   def __init__(self, name):
     self.name = name
-  
+
   def __repr__(self):
     return '<Source %r>' % self.name
 
@@ -78,7 +78,7 @@ class Aspect(db.Model):
 
   def __init__(self, name):
     self.name = name
-  
+
   def __repr__(self):
     return '<Aspect %r>' % self.name
 
@@ -93,12 +93,12 @@ class Organization(db.Model):
   def __repr__(self):
     return '<Organization %r>' % self.name
 
- 
+
 class Tag(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.Text(80))
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-  
+
   def __init__(self, name, user_id):
     self.name = name
     self.user_id = user_id
