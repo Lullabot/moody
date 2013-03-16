@@ -13,9 +13,13 @@ conversations, or hi-fives can follow.
 
 You need a working Flask + SQLAlchemy install
 
+```
+bash pip install -f requirements.txt
+```
+
 See http://flask.pocoo.org/docs/installation/#installation for instructions on getting set up with virtualenv - after that, you can 'pip install' the following:
 
-* flask 
+* flask
 * SQLAlchemy
 * Flask-SQLAlchemy
 * mysql-python (Watch out for dependencies. I had to get the right version of 'distribute' for python, then install libmysqlclient-dev and python-dev before it would work.)
